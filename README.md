@@ -17,5 +17,13 @@ vagrant ssh
 
 ```.sh
 vagrant up
+vagrant box list
+vagrant ssh-config --host harmox > ~/.ssh/config
 vagrant ssh
 ```
+
+| cmd | detail |
+|:--:|:--:|
+|`vagrant halt`|停止|
+|`vagrant reload`|再起動|
+|`vagrant status`|状態|
