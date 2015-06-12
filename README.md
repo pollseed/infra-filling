@@ -7,8 +7,8 @@ infra code
 #### 対象環境
 
 * MacOS & brew
-* Python2.7>=
-* Ruby2.0>=
+* Python>=2.7
+* Ruby>=2.0
  
 #### インストール
  
