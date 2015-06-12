@@ -6,6 +6,8 @@ infra code
 
 #### 未開の地
 
+重いなら、OSのイメージ使ってKURE
+
 ```.sh
 vagrant init --minimal ubuntu/trusty64
 vagrant up # 初回は1時間位かかる想定(OSインストールしてるからね)
@@ -16,11 +18,13 @@ vagrant ssh
 #### このレポジトリを使う
 
 ```.sh
+cd vagrant/
 vagrant up
 vagrant box list
 vagrant ssh-config --host harmox > ~/.ssh/config
 vagrant ssh
 ```
+#### frequency cmd
 
 | cmd | detail |
 |:--:|:--:|
