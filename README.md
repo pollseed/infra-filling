@@ -2,6 +2,27 @@ infra code
 ---
 インフラコードを詰め込ム
 
+### 事前準備
+
+#### 対象環境
+
+* MacOS & brew
+* Python2.7>=
+* Ruby2.0>=
+ 
+#### インストール
+ 
+```.sh
+# install
+brew cask install vagrant
+brew cask install virtualbox
+brew install ansible
+
+# version
+vagrant -v
+ansible --version
+```
+
 ### セットアップ＆挙動確認
 
 #### 未開の地
