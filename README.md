@@ -11,7 +11,11 @@ infra code
 * Ruby>=2.0
  
 #### インストール
- 
+
+* vagrant
+* virtualbox
+* ansible
+
 ```.sh
 # install
 brew cask install vagrant
