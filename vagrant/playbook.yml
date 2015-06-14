@@ -1,0 +1,52 @@
+---
+- hosts: all
+  user: vagrant
+  sudo: yes
+  vars:
+    work_dir: /home/vagrant
+    repos_dir: "{{ work_dir }}/harmox"
+    branch: master
+  tasks:
+    - name: install vim
+      apt: pkg=vim state=latest
+    - name: install language-pack-ja
+      apt: pkg=language-pack-ja state=latest
+      sudo: yes
+    - name: install git
+      apt: pkg=git update_cache=yes state=latest
+    - name: install libssl-dev
+      apt: pkg=libssl-dev update_cache=yes state=latest
+    - name: check out rbenv
+      git: repo=git://github.com/sstephenson/rbenv.git dest=/home/vagrant/.rbenv accept_hostkey=yes
+    - name: add .rbenv/bin to $PATH
+      lineinfile: dest=/home/vagrant/.profile line=export\ PATH="$HOME/.rbenv/bin:$PATH" regexp=PATH.*rbenv create=yes owner=vagrant group=vagrant
+      sudo: no
+    - name: add rbenv init
+      lineinfile: dest=/home/vagrant/.profile line=eval\ \"$(rbenv\ init\ -)\" regexp=eval.*rbenv create=yes owner=vagrant group=vagrant
+      sudo: no
+    - name: check out ruby-build as rbenv plugin
+      git: repo=git://github.com/sstephenson/ruby-build.git dest=/home/vagrant/.rbenv/plugins/ruby-build accept_hostkey=yes
+      sudo: yes
+    - name: ruby-build install.sh
+      shell: /home/vagrant/.rbenv/plugins/ruby-build/install.sh
+      sudo: yes
+    - name: sudo chown -R vagrant:vagrant rbenv
+      shell: sudo chown -R vagrant:vagrant /home/vagrant/.rbenv
+    - name: install ruby with rbenv
+      shell: /home/vagrant/.rbenv/bin/rbenv install 2.2.2
+      sudo: no
+    - name: set ruby version global
+      command: /home/vagrant/.rbenv/bin/rbenv global 2.2.2
+      sudo: no
+    - name: install bundler gem
+      command: /home/vagrant/.rbenv/shims/gem install bundler --no-ri --no-rdoc
+      sudo: no
+    - name: rbenv rehash
+      command: /home/vagrant/.rbenv/bin/rbenv rehash
+      sudo: no
+    - name: install rails gem
+      shell: /home/vagrant/.rbenv/shims/gem install rails --no-ri --no-rdoc
+    - name: install nginx
+      apt: pkg=nginx update_cache=yes state=latest
+    - name: start and enable nginx
+      service: name=nginx state=started enabled=yes
