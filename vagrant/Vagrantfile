@@ -4,9 +4,8 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |v|
     v.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
   end
-  
-  # 一旦これコメントアウト→後でファイルを億予定 
-  #config.vm.provision "ansible" do |ansible|
-    #ansible.playbook = "playbook.yml"
-  #end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
 end
