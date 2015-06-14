@@ -56,3 +56,9 @@ vagrant ssh
 |`vagrant halt`|停止|
 |`vagrant reload`|再起動|
 |`vagrant status`|状態|
+
+### 作ったあとに適応したい時
+
+```.sh
+vagrant provision
+```
