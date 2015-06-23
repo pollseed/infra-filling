@@ -3,3 +3,7 @@ machine:
     Asia/Tokyo
   ruby:
     version: 2.2.2
+
+test:
+  override:
+    - script/test.bash
