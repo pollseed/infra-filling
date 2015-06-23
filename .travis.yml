@@ -1,5 +1,8 @@
 language: ruby
 
+script:
+- bash ./test.bash
+
 rvm:
   - 2.2.2
   
