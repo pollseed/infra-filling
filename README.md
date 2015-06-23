@@ -1,4 +1,6 @@
 # infra code   
+[![Build Status](https://travis-ci.org/pollseed/infra-filling.svg?branch=master)](https://travis-ci.org/pollseed/infra-filling)   
+
 ![icon](resources/icon_dot.png)    
 greenzombie
 
