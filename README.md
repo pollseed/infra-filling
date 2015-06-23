@@ -3,18 +3,21 @@ infra code
 インフラコードを詰め込ム
 
 ### 事前準備
+バージョンに関してはなるべく合わせる  
+古いバージョンのせいでエラーになることが多々ある
 
 #### 対象環境
 
-* MacOS & brew
-* Python>=2.7
-* Ruby>=2.0
- 
+* MacOS == 10.10.3
+* Homebrew == 0.9.5
+* Python >= 2.7
+* Ruby >= 2.2
+
 #### インストール
 
-* vagrant
-* virtualbox
-* ansible
+* vagrant == 1.7.2
+* virtualbox == 4.3.28
+* ansible >= 1.9.1
 
 ```.sh
 # install
