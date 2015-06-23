@@ -12,6 +12,8 @@ infra code
 * Homebrew == 0.9.5
 * Python >= 2.7
 * Ruby >= 2.2
+* private-repository (git@github.com:pollseed/harmox-app.git)
+* master-develop構成とする
 
 #### インストール
 
