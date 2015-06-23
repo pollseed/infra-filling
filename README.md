@@ -67,3 +67,13 @@ vagrant ssh
 ```.sh
 vagrant provision
 ```
+
+### 現状の構築状態
+1. OSセットアップ
+2. 必要なソフトをインストール
+3. harmoxのインストール
+
+#### TODO
+* 依存問題解決
+* DB周りの設定
+* デプロイ
