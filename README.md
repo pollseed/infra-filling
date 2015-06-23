@@ -1,6 +1,10 @@
-infra code
+# infra code   
+![icon](resources/icon_dot.png)    
+greenzombie
+
 ---
-インフラコードを詰め込ム
+
+インフラコードを詰め込ム 
 
 ### 事前準備
 バージョンに関してはなるべく合わせる  
