@@ -1,0 +1,2 @@
+[servers]
+192.168.1.10 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/Users/shn/workspace/harmox/harmox-infra/infra-filling/vagrant/.vagrant/machines/default/virtualbox/private_key
