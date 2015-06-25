@@ -1,0 +1,37 @@
+---
+
+- name: Install common pkg
+  apt: pkg={{ item }} force=yes update_cache=yes state=latest
+  with_items: "{{packages}}"
+  tags: packages
+
+- name: check out rbenv
+  git: repo=git://github.com/sstephenson/rbenv.git dest="{{ home }}"/.rbenv accept_hostkey=yes
+- name: add .rbenv/bin to $PATH
+  lineinfile: dest="{{ home }}".profile line=export\ PATH="$HOME/.rbenv/bin:$PATH" regexp=PATH.*rbenv create=yes owner=vagrant group=vagrant
+  sudo: no
+- name: add rbenv init
+  lineinfile: dest="{{ home }}".profile line=eval\ \"$(rbenv\ init\ -)\" regexp=eval.*rbenv create=yes owner=vagrant group=vagrant
+  sudo: no
+- name: check out ruby-build as rbenv plugin
+  git: repo=git://github.com/sstephenson/ruby-build.git dest="{{ home }}".rbenv/plugins/ruby-build accept_hostkey=yes
+  sudo: yes
+- name: ruby-build install.sh
+  shell: "{{ home }}".rbenv/plugins/ruby-build/install.sh
+  sudo: yes
+- name: sudo chown -R vagrant:vagrant rbenv
+  shell: sudo chown -R vagrant:vagrant "{{ home }}".rbenv
+- name: install ruby with rbenv
+  shell: "{{ home }}".rbenv/bin/rbenv install 2.2.2
+  sudo: no
+- name: set ruby version global
+  command: "{{ home }}".rbenv/bin/rbenv global 2.2.2
+  sudo: no
+- name: install bundler gem
+  command: "{{ home }}".rbenv/shims/gem install bundler --no-ri --no-rdoc
+  sudo: no
+- name: rbenv rehash
+  command: "{{ home }}".rbenv/bin/rbenv rehash
+  sudo: no
+- name: install rails gem
+  shell: "{{ home }}".rbenv/shims/gem install rails --no-ri --no-rdoc

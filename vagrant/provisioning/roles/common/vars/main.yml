@@ -1,0 +1,10 @@
+---
+packages:
+  - vim
+  - language-pack-ja
+  - git
+  - libssl-dev
+  - nginx
+
+home:
+  - /home/vagrant

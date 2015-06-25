@@ -9,6 +9,7 @@ Vagrant.configure(2) do |config|
   end
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provisioning/playbook.yml"
+    # ansible.playbook = "provisioning/main.yml"
     ansible.inventory_path = "provisioning/hosts"
     ansible.limit = "all"
     ansible.extra_vars = {

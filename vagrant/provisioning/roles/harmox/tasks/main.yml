@@ -1,0 +1,9 @@
+---
+- name: clone harmox-app
+  git:
+      repo=git@github.com:pollseed/harmox-app.git
+      dest={{ repos_dir }}
+      version={{ branch }}
+      accept_hostkey=yes
+      key_file=/Users/shn/workspace/harmox/harmox-infra/infra-filling/vagrant/.vagrant/machines/default/virtualbox/private_key
+  sudo: false

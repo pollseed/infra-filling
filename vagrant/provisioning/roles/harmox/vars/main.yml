@@ -1,0 +1,9 @@
+---
+    work_dir: 
+      - /home/vagrant
+
+    repos_dir: 
+      - "{{ work_dir }}/harmox"
+    
+    branch: 
+      - master
