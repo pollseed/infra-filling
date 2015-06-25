@@ -1,6 +1,13 @@
-infra code
+# infra code   
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pollseed/infra-filling?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Build Status](https://travis-ci.org/pollseed/infra-filling.svg?branch=master)](https://travis-ci.org/pollseed/infra-filling) 
+
+![icon](resources/icon_dot.png)    
+greenzombie
+
 ---
-インフラコードを詰め込ム
+
+インフラコードを詰め込ム 
 
 ### 事前準備
 バージョンに関してはなるべく合わせる  
